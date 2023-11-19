@@ -1,0 +1,35 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #000814;
+}
+
+header {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001D3D;
+    font-size: 40px;
+    font-family: 'Emotional Baggage';
+    color: #000814;
+    text-shadow: 2px 2px 2px #003566;
+}
+
+section {
+    height: 80%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    background-color: #001D3D;
+    font-size: 20px;
+    font-family: 'Emotional Baggage';
+    color: #000814;
+    text-shadow: 2px 2px 2px #003566;
+}
