@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "Emotional Baggage";
+    src: url("../src/fonts/EmotionalBaggage-Regular.ttf");
+}
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
     background-color: #000814;
+    font-family: "Emotional Baggage";
 }
 
 header {
@@ -12,14 +18,102 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #001D3D;
-    font-size: 40px;
+    font-size: 200%;
     font-family: 'Emotional Baggage';
     color: #000814;
-    text-shadow: 2px 2px 2px #003566;
+    text-shadow: 2px 2px 2px #FFC300;
 }
 
 section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 80%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 50%;
+}
+
+.callToAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001D3D;
+    text-shadow: 1px 1px 1px #FFC300;
+    font-size: 150%;
+    color: #000814;
+    height: 20%;
+    border-radius: 15px 15px 0 0;
+}
+
+.result {
+    display: flex;
+    height: 15%;
+    background-color: #003566;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
+    color: #000814;
+    text-shadow: 1px 1px 1px #FFC300;
+}
+
+.choices {
+    display: flex;
+    height: 40%;
+    background-color: #003566;
+    width: 100%
+}
+
+.choices > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.33%;
+}
+
+.choices > div > button {
+    width: 70%;
+    height: 65%;
+    background-color: #003566;
+    border: none;
+}
+
+.choices > div > button > img {
+    width: 100%;
+    height: 50%;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    background-color: #001D3D;
+    border-radius: 0 0 15px 15px;
+}
+
+.btn > button {
+    border: none;
+    background-color: #003566;
+    height: 40%;
+    width: 40%;
+    border-radius: 15px;
+    box-shadow: #FFD60A 2px 2px 2px;
+    font-family: "Emotional baggage";
+    text-shadow: 1px 1px 1px #FFC300;
+    transition: all 0.5s ease;
+}
+
+.btn > button:hover {
+    background-color: #FFD60A;
+    box-shadow: #003566 2px 2px 2px;
+    text-shadow: 1px 1px 1px #FFC300;
+    cursor: pointer;
+
 }
 
 footer {
@@ -28,10 +122,10 @@ footer {
     align-items: center;
     height: 10%;
     background-color: #001D3D;
-    font-size: 20px;
+    font-size: 150%;
     font-family: 'Emotional Baggage';
     color: #000814;
-    text-shadow: 2px 2px 2px #003566;
+    text-shadow: 1px 1px 1px #FFC300;
 }
 
 /* color palette :
