@@ -10,6 +10,7 @@ body {
     padding: 0;
     background-color: #000814;
     font-family: "Emotional Baggage";
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 header {
@@ -35,7 +36,7 @@ section {
     display: flex;
     flex-direction: column;
     height: 50%;
-    width: 50%;
+    width: 30%;
 }
 
 .callToAction {
@@ -76,15 +77,23 @@ section {
 }
 
 .choices > div > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 70%;
-    height: 65%;
-    background-color: #003566;
+    height: 15%;
+    background-color: transparent;
     border: none;
+    font-size: 100%;
+    font-family: 'Emotional Baggage';
+    color: #000814;
+    text-shadow: 1px 1px 1px #FFC300;
+    transition: all 0.5s;
 }
 
-.choices > div > button > img {
-    width: 100%;
-    height: 50%;
+.choices > div > button:hover {
+    cursor: pointer;
+    font-size: 120%;
 }
 
 .btn {
