@@ -1,5 +1,9 @@
 // Some important variables
 
+var resultRound = document.querySelector(".resultRound");
+var resultGame = document.querySelector(".resultGame");
+var playerScoreResult = document.querySelector(".playerScore");
+var computerScoreResult = document.querySelector(".computerScore");
 
 
 // Computer variable
@@ -13,85 +17,130 @@ function getComputerChoice() {
 
 // Player selection
 
-function getPlayerChoice() {
-    let rock = document.querySelector("#rock");
+// function getPlayerChoice() {
+    var rock = document.querySelector(".rockBtn");
     rock.addEventListener("click", () => {
-        playRound("rock", getComputerChoice());
+        playRound("rock");
     })
-    let paper = document.querySelector("#paper");
+    var paper = document.querySelector(".paperBtn");
     paper.addEventListener("click", () => {
-        playRound("rock", getComputerChoice());
+        playRound("paper");
     })
-    let scissors = document.querySelector("#scissors");
+    var scissors = document.querySelector(".scissorsBtn");
     scissors.addEventListener("click", () => {
-        playRound("rock", getComputerChoice());
+        playRound("scissors");
     })
-}
-
-// PlayerChoice function
-// function getPlayerChoice() {   
-// let j = prompt("Enter rock, paper or scissors").toLowerCase();
-
-    // if (j == "rock" || j == "paper" || j == "scissors") {
-    //     return j;
-    // } else {
-    //     alert("Error");
-    //     return getPlayerChoice();
-    // }
 // }
 
+// PlayerChoice function
+function getPlayerChoice() {   
+let j = prompt("Enter rock, paper or scissors").toLowerCase();
+
+    if (j == "rock" || j == "paper" || j == "scissors") {
+        return j;
+    } else {
+        alert("Error");
+        return getPlayerChoice();
+    }
+}
+
 // Play a round function
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+    var computerSelection = getComputerChoice()
     if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You Lose! Paper beats Rock");
+        resultRound.innerHTML = "You Lose! Paper beats Rock";
         return "computer";
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log("You Win! Rock beats Scissors");
+        resultRound.innerHTML = "You Win! Rock beats Scissors";
         return "player";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You Win! Paper beats Rock");
+        resultRound.innerHTML = "You Win! Paper beats Rock";
         return "player";
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You Lose! Scissors beats Paper");
+        resultRound.innerHTML = "You Lose! Scissors beats Paper";
         return "computer";
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log("You Lose! Rock beats Scissors");
+        resultRound.innerHTML = "You Lose! Rock beats Scissors";
         return "computer";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You Win! Scissors beats Paper");
+        resultRound.innerHTML = "You Win! Scissors beats Paper";
         return "player";
     } else {
-        console.log("Tie");
+        resultRound.innerHTML = "Tie";
         return "tie";
     }
 }
 
 // Game function
-function game() {
+// function game() {
+//     let playerScore = 0;
+//     let computerScore = 0;
+
+//     for (let round = 0; round < 5; round++) {
+//         var computerSelection = getComputerChoice();
+//         var playerSelection = getPlayerChoice();
+//         var result = playRound(playerSelection, computerSelection);
+
+//         if (result == "player") {
+//             playerScore++;
+//         } else if (result == "computer") {
+//             computerScore++;
+//         }
+//     }
+
+//     console.log("Game Over!");
+//     console.log("Player Score: " + playerScore);
+//     console.log("Computer Score: " + computerScore);
+
+//     if (playerScore > computerScore) {
+//         console.log("You win the game!");
+//     } else if (playerScore < computerScore) {
+//         console.log("You lose the game!");
+//     } else {
+//         console.log("It's a tie!");
+//     }
+// }
+
+function gameFinale() {
     let playerScore = 0;
     let computerScore = 0;
 
     for (let round = 0; round < 5; round++) {
-        var computerSelection = getComputerChoice();
-        var playerSelection = getPlayerChoice();
-        var result = playRound(playerSelection, computerSelection);
+        var result = playRound(playerSelection)
+        // var playerSelection = getPlayerChoice()
+
+        var rock = document.querySelector(".rockBtn");
+        rock.addEventListener("click", () => {
+           playRound("rock");
+        })
+        var paper = document.querySelector(".paperBtn");
+        paper.addEventListener("click", () => {
+            playRound("paper");
+        })
+        var scissors = document.querySelector(".scissorsBtn");
+        scissors.addEventListener("click", () => {
+            playRound("scissors");
+        })
 
         if (result == "player") {
             playerScore++;
+            playerScoreResult.innerHTML = "Player: <br>" + playerScore; 
         } else if (result == "computer") {
             computerScore++;
+            computerScoreResult.innerHTML = "computer: <br>" + computerScore;
         }
     }
 
-    console.log("Game Over!");
-    console.log("Player Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
-
     if (playerScore > computerScore) {
-        console.log("You win the game!");
+        resultGame.innerHTML= "You win the game!";
     } else if (playerScore < computerScore) {
-        console.log("You lose the game!");
+        resultGame.innerHTML= "You lose the game!";
     } else {
-        console.log("It's a tie!");
+        resultGame.innerHTML= "It's a tie!";
     }
 }
+
+var play = document.querySelector('.btn')
+play.addEventListener('click', () => {
+    gameFinale();
+})
