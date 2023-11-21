@@ -51,9 +51,9 @@ section {
     border-radius: 15px 15px 0 0;
 }
 
-.result {
+.resultRound, .resultGame{
     display: flex;
-    height: 15%;
+    height: 10%;
     background-color: #003566;
     justify-content: center;
     align-items: center;
@@ -62,9 +62,23 @@ section {
     text-shadow: 1px 1px 1px #FFC300;
 }
 
+.scores  {
+    display: flex;
+    background-color: #003566;
+    width: 100%;
+    height: 10%;
+}
+
+.playerScore, .computerScore {
+    width: 50%;
+    font-size: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFC300;
+}
+
 .choices {
     display: flex;
-    height: 40%;
+    height: 20%;
     background-color: #003566;
     width: 100%
 }
@@ -100,7 +114,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25%;
+    height: 15%;
     background-color: #001D3D;
     border-radius: 0 0 15px 15px;
 }

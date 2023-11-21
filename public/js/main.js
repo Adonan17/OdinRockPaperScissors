@@ -1,3 +1,7 @@
+// Some important variables
+
+
+
 // Computer variable
 var answers = ["rock", "paper", "scissors"];
 
@@ -7,17 +11,34 @@ function getComputerChoice() {
     return answers[i];
 }
 
-// PlayerChoice function
-function getPlayerChoice() {
-    let j = prompt("Enter rock, paper or scissors").toLowerCase();
+// Player selection
 
-    if (j == "rock" || j == "paper" || j == "scissors") {
-        return j;
-    } else {
-        alert("Error");
-        return getPlayerChoice();
-    }
+function getPlayerChoice() {
+    let rock = document.querySelector("#rock");
+    rock.addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+    })
+    let paper = document.querySelector("#paper");
+    paper.addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+    })
+    let scissors = document.querySelector("#scissors");
+    scissors.addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+    })
 }
+
+// PlayerChoice function
+// function getPlayerChoice() {   
+// let j = prompt("Enter rock, paper or scissors").toLowerCase();
+
+    // if (j == "rock" || j == "paper" || j == "scissors") {
+    //     return j;
+    // } else {
+    //     alert("Error");
+    //     return getPlayerChoice();
+    // }
+// }
 
 // Play a round function
 function playRound(playerSelection, computerSelection) {
