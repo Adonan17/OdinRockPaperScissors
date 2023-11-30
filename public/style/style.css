@@ -56,6 +56,7 @@ section {
     height: 10%;
     background-color: #003566;
     text-align: center;
+    justify-content: center;
     align-items: center;
     font-size: 120%;
     color: #000814;

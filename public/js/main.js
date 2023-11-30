@@ -4,6 +4,8 @@ var resultRound = document.querySelector(".resultRound");
 var resultGame = document.querySelector(".resultGame");
 var playerScoreResult = document.querySelector(".playerScore");
 var computerScoreResult = document.querySelector(".computerScore");
+var playerScore = 0
+var computerScore = 0
 
 
 // Computer variable
@@ -15,61 +17,74 @@ function getComputerChoice() {
     return answers[i];
 }
 
-// Player selection
+// PlayerChoice function
+// function getPlayerChoice() {   
+// let j = prompt("Enter rock, paper or scissors").toLowerCase();
 
-// function getPlayerChoice() {
-    var rock = document.querySelector(".rockBtn");
-    rock.addEventListener("click", () => {
-        playRound("rock");
-    })
-    var paper = document.querySelector(".paperBtn");
-    paper.addEventListener("click", () => {
-        playRound("paper");
-    })
-    var scissors = document.querySelector(".scissorsBtn");
-    scissors.addEventListener("click", () => {
-        playRound("scissors");
-    })
+//     if (j == "rock" || j == "paper" || j == "scissors") {
+//         return j;
+//     } else {
+//         alert("Error");
+//         return getPlayerChoice();
+//     }
 // }
 
-// PlayerChoice function
-function getPlayerChoice() {   
-let j = prompt("Enter rock, paper or scissors").toLowerCase();
-
-    if (j == "rock" || j == "paper" || j == "scissors") {
-        return j;
-    } else {
-        alert("Error");
-        return getPlayerChoice();
-    }
-}
-
 // Play a round function
+
 function playRound(playerSelection) {
     var computerSelection = getComputerChoice()
     if (playerSelection == "rock" && computerSelection == "paper") {
         resultRound.innerHTML = "You Lose! Paper beats Rock";
-        return "computer";
+        updateScore("computer");
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         resultRound.innerHTML = "You Win! Rock beats Scissors";
-        return "player";
+        updateScore("player");
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         resultRound.innerHTML = "You Win! Paper beats Rock";
-        return "player";
+        updateScore("player");
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         resultRound.innerHTML = "You Lose! Scissors beats Paper";
-        return "computer";
+        updateScore("computer");
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         resultRound.innerHTML = "You Lose! Rock beats Scissors";
-        return "computer";
+        updateScore("computer");
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         resultRound.innerHTML = "You Win! Scissors beats Paper";
-        return "player";
+        updateScore("player");
     } else {
         resultRound.innerHTML = "Tie";
         return "tie";
     }
 }
+
+function updateScore(playRoundResult){
+    while ((playerScore + computerScore) < 5){
+        if (playRoundResult === "player"){
+            playerScore++;
+            playerScoreResult.innerHTML = "Player: <br>" +  playerScore;
+            break
+        } else if (playRoundResult === "computer"){
+            computerScore++;
+            computerScoreResult.innerHTML = "computer: <br>" + computerScore;
+            break
+        }
+    }
+}
+
+// Player selection
+
+var rock = document.querySelector(".rockBtn");
+rock.addEventListener("click", () => {
+    playRound("rock");
+})
+var paper = document.querySelector(".paperBtn");
+paper.addEventListener("click", () => {
+    playRound("paper");
+})
+var scissors = document.querySelector(".scissorsBtn");
+scissors.addEventListener("click", () => {
+    playRound("scissors");
+})
 
 // Game function
 // function game() {
@@ -101,46 +116,41 @@ function playRound(playerSelection) {
 //     }
 // }
 
-function gameFinale() {
-    let playerScore = 0;
-    let computerScore = 0;
+// function gameFinale() {
+//     let playerScore = 0;
+//     let computerScore = 0;
 
-    for (let round = 0; round < 5; round++) {
-        var result = playRound(playerSelection)
-        // var playerSelection = getPlayerChoice()
+//     for (let round = 0; round < 5; round++) {
+//         var result = playRound(playerSelection)
+//         // var playerSelection = getPlayerChoice()
 
-        var rock = document.querySelector(".rockBtn");
-        rock.addEventListener("click", () => {
-           playRound("rock");
-        })
-        var paper = document.querySelector(".paperBtn");
-        paper.addEventListener("click", () => {
-            playRound("paper");
-        })
-        var scissors = document.querySelector(".scissorsBtn");
-        scissors.addEventListener("click", () => {
-            playRound("scissors");
-        })
+//         var rock = document.querySelector(".rockBtn");
+//         rock.addEventListener("click", () => {
+//            playRound("rock");
+//         })
+//         var paper = document.querySelector(".paperBtn");
+//         paper.addEventListener("click", () => {
+//             playRound("paper");
+//         })
+//         var scissors = document.querySelector(".scissorsBtn");
+//         scissors.addEventListener("click", () => {
+//             playRound("scissors");
+//         })
 
-        if (result == "player") {
-            playerScore++;
-            playerScoreResult.innerHTML = "Player: <br>" + playerScore; 
-        } else if (result == "computer") {
-            computerScore++;
-            computerScoreResult.innerHTML = "computer: <br>" + computerScore;
-        }
-    }
+//         if (result == "player") {
+//             playerScore++;
+//             playerScoreResult.innerHTML = "Player: <br>" + playerScore; 
+//         } else if (result == "computer") {
+//             computerScore++;
+//             computerScoreResult.innerHTML = "computer: <br>" + computerScore;
+//         }
+//     }
 
-    if (playerScore > computerScore) {
-        resultGame.innerHTML= "You win the game!";
-    } else if (playerScore < computerScore) {
-        resultGame.innerHTML= "You lose the game!";
-    } else {
-        resultGame.innerHTML= "It's a tie!";
-    }
-}
-
-var play = document.querySelector('.btn')
-play.addEventListener('click', () => {
-    gameFinale();
-})
+//     if (playerScore > computerScore) {
+//         resultGame.innerHTML= "You win the game!";
+//     } else if (playerScore < computerScore) {
+//         resultGame.innerHTML= "You lose the game!";
+//     } else {
+//         resultGame.innerHTML= "It's a tie!";
+//     }
+// }
